@@ -35,7 +35,7 @@ namespace Imenik.ViewModels
             ObrisiKomanda = new RelayCommand(Obrisi);
         }
 
-        // Biramo da li je izabrani kontakt omiljen ili ne 
+        // Marking selected contact as favorite
         private void Omiljeni()
         {
             if (IzabraniKontakt == null) return;
@@ -43,13 +43,13 @@ namespace Imenik.ViewModels
             _sender.SacuvajKontakt(IzabraniKontakt);
         }
 
-        // Metoda koja poziva metodu u ImenikViewModel za postavljanje view-a IzmenaKontaktaView 
+        // Setting IzmenaKontaktaView
         private void Izmeni()
         {
             _sender.IzmeniKontakt();
         }
-        // Uput i brisanje izabranog kontakta
-        // poziva metodu iz ImenikViewModel-a
+
+        // Delete contact
         private void Obrisi()
         {
             if (IzabraniKontakt != null)

@@ -10,23 +10,30 @@ namespace Imenik.Model
     public class Kontakt : ObservableObject
     {
         public Guid Id { get; set; }    
-
+        
+        // First Name
         private string _ime;
         public string Ime
         {
             get { return _ime; }
             set { OnPropertyChanged(ref _ime, value); }
         }
+
+        // Last Name
         private string _prezime;
         public string Prezime
         {
             get { return _prezime; }
             set { OnPropertyChanged(ref _prezime, value); }
         }
+
+        // Full Name
         public string PunoIme
         {
             get { return $"{Ime} {Prezime}"; }
         }
+
+        // Phone number
         private string _brojTelefona;
         public string BrojTelefona
         {
@@ -34,6 +41,7 @@ namespace Imenik.Model
             set { OnPropertyChanged(ref _brojTelefona, value); }
         }
 
+        // Email
         private string _eposta;
         public string EPosta
         {
@@ -41,6 +49,7 @@ namespace Imenik.Model
             set { OnPropertyChanged(ref _eposta, value); }
         }
 
+        // Adress
         private string _adresa;
         public string Adresa
         {
@@ -48,6 +57,7 @@ namespace Imenik.Model
             set { OnPropertyChanged(ref _adresa, value); }
         }
 
+        // isFavorite
         private bool _jeOmiljeni;
         public bool JeOmiljeni
         {
@@ -55,6 +65,7 @@ namespace Imenik.Model
             set { OnPropertyChanged(ref _jeOmiljeni, value); }
         }
 
+        // Img path
         private string _imgPutanja;
         public string ImgPutanja
         {

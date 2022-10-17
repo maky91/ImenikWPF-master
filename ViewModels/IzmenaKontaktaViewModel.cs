@@ -33,20 +33,20 @@ namespace Imenik.ViewModels
             SacuvajKomanda = new RelayCommand(Sacuvaj);
         }
 
-        // Biramo da li je izabrani kontakt omiljen ili ne 
+        // Marking contact as favorite
         private void Omiljeni()
         {
             IzabraniKontakt.JeOmiljeni = !IzabraniKontakt.JeOmiljeni;
         }
 
-        //ubacivanje slike
+        // Adding contact picture
         private void PretraziSliku()
         {
             var putanjaDatoteke = _sender.OtvoriDatoteku("Image files|*.bmp;*.jpg;*.jpeg;*.png|All files");
             IzabraniKontakt.ImgPutanja = putanjaDatoteke;
         }
 
-        // usnimavanje podataka pozivanjem metode u ImenikViewModel
+        // Saving contact data
         private void Sacuvaj()
         {
             _sender.SacuvajKontakt(IzabraniKontakt);

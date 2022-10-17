@@ -57,7 +57,8 @@ namespace Imenik.ViewModels
             IzabraniKontakt = kontakt;
             PrikaziDetalje();
         }
-        /* Ucitavanje kontakta */
+        // SRB - Ucitavanje kontakta 
+        // ENG - Loading contacts 
         public void UcitajKontakte()
         {
             if (!File.Exists(_imeDatoteke))
@@ -71,7 +72,8 @@ namespace Imenik.ViewModels
                 Kontakti.Add(kontakti);
 
         }
-        /* Ucitavanje omiljenih */
+        // SRB - Ucitavanje omiljenih 
+        // ENG - Loading favorites
         private void UcitajOmiljene()
         {
             List<Kontakt> kontaktiTemp = Kontakti.Where(k => k.JeOmiljeni).ToList();
@@ -92,7 +94,8 @@ namespace Imenik.ViewModels
             }
         }
 
-        /* Dodavanje novog kontakta i postavljanje za izabrani */
+        // SRB - Dodavanje novog kontakta i postavljanje za izabrani
+        // ENG - Adding new contact and selecting it
         private void DodajKontakt()
         {
             var noviKontakt = new Kontakt
@@ -111,8 +114,11 @@ namespace Imenik.ViewModels
             IzmeniKontakt();
         }
 
-        // Postavljanje View-a koji prikazije detalje o izabranom kontaktu
-        //poziva ga svojstvo IzabraniKontakt
+        /* SRB - Postavljanje View-a koji prikazije detalje o izabranom kontaktu
+                 Poziva ga svojstvo IzabraniKontakt */
+
+        /* ENG - Setting View which shows details abot selected contact 
+                 Called by property IzabraniKontakt */
 
         public void PrikaziDetalje()
         {
@@ -120,7 +126,8 @@ namespace Imenik.ViewModels
             TrenutniPrikaz = new PrikazKontaktaView(IzabraniKontakt, this);
         }
 
-        /* Usnimavanje podataka novog ili izmenjenog kontakta */
+        // SRB - Usnimavanje podataka novog ili izmenjenog kontakta
+        // ENG - Saving data of new or edited contact
 
         public void SacuvajKontakt(Kontakt kontakt)
         {
@@ -130,15 +137,19 @@ namespace Imenik.ViewModels
             IzabraniKontakt = kontakt;
         }
 
-        // Postavljanje View-a za izmenu izabrang kontakta/ili dodavanje novog 
-        // Definisana u interfejsu i poziva se iz PrikazKontaktaView/Viewmodel 
+        /*  SRB - Postavljanje View-a za izmenu podataka izabrang kontakta ili dodavanje novog 
+                  Poziva se iz PrikazKontaktaView/ViewModel */
+
+        /* ENG - Setting View for changing selected contact or adding a new one
+                 Called from PrikazKontaktaView/ViewModel */
         public void IzmeniKontakt()
         {
             
             TrenutniPrikaz = new IzmenaKontaktaView(IzabraniKontakt, this);
         }
 
-        // Definisana u interfejsu i poziva se iz PrikazKontaktaView/Viewmodel
+        //  SRB - Poziva se iz PrikazKontaktaView/ViewModel
+        // ENG - Called from PrikazKontaktaView/ViewModel
         public void ObrisiIzabraniKontakt()
         {
             Kontakti.Remove(IzabraniKontakt);
@@ -148,7 +159,8 @@ namespace Imenik.ViewModels
 
         }
 
-        // Definisana u interfejsu i poziva se iz IzmenaKontaktaView/Viewmodel
+        // SRB - Poziva se iz IzmenaKontaktaView/ViewModel
+        // ENG - Called from IzmenaKontaktaView/ViewModel
         public string OtvoriDatoteku(string filter)
         {
             var dijalog = new OpenFileDialog();
